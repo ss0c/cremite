@@ -1,5 +1,3 @@
-# cremite
-
 <h1 align = "center">Project-CREMITE</h1>
 <p><b>Cremite es un dron terrestre comandado mediante bluetooth. Este será destinado a la exploración en lugares en donde el terreno
 cuenta con características que dificultan
