@@ -27,7 +27,7 @@ el límite, se enviará una advertencia.
 Nuestro dron dispondrá de avisos acústicos para evitar accidentes.
 </ul>
 <h3>HARDWARE</h3>
-<p>Puente H: 
+<p><b>Puente H</b>: 
 Es el circuito que usaremos para invertir el giro de nuestros motores, es decir, un puente por motor. Este
 circuito está compuesto por:</p>
 <ul>
