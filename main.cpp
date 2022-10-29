@@ -3,14 +3,11 @@ $ = Cuando hay un valor numerico despues de la orden EJ:$AXX_
 # = Cuando no hay un valor numerico EJ: #L_
 */
 
-<<<<<<< HEAD
-=======
 //Librerias 
 #include <Arduino.h>
 #define _PWM_LOGLEVEL_        3
 #include "RP2040_PWM.h"
 
->>>>>>> 3065ff5 (Funcion de Ultrasonido Añadida)
 //Pines para los motores
 #define pmotiA 14
 #define pmotiB 16
@@ -24,12 +21,6 @@ $ = Cuando hay un valor numerico despues de la orden EJ:$AXX_
 #define uTrigger 9
 #define uEcho 10
 
-<<<<<<< HEAD
-#include <Arduino.h>
-#define _PWM_LOGLEVEL_        3
-#include "RP2040_PWM.h"
-=======
->>>>>>> 3065ff5 (Funcion de Ultrasonido Añadida)
 
 //creates pwm instance
 RP2040_PWM* motiA;
@@ -43,8 +34,6 @@ float dCycled = 0;
 int numChar[2];
 bool completeString = false; 
 String inputString = ""; //Almacenar el mensaje que llega desde el bluetooth
-<<<<<<< HEAD
-=======
 uint32_t t = 0;
 uint16_t distance = 0;
 
@@ -59,15 +48,10 @@ void uDistance (){
 }
 
 
->>>>>>> 3065ff5 (Funcion de Ultrasonido Añadida)
 
 
 void setup()
 {
-<<<<<<< HEAD
-  //assigns pin 25 (built in LED), with frequency of 20 KHz and a duty cycle of 0%
-=======
->>>>>>> 3065ff5 (Funcion de Ultrasonido Añadida)
   motiA = new RP2040_PWM(pmotiA, freq, dCyclei);
   motiB = new RP2040_PWM(pmotiB, freq, dCyclei);
   motdA = new RP2040_PWM(pmotdA, freq, dCycled);
@@ -75,16 +59,10 @@ void setup()
 
   pinMode(boc, OUTPUT);
   pinMode(leds, OUTPUT);
-<<<<<<< HEAD
-  pinMode(tempH, INPUT);
-  pinMode(uTrigger, INPUT);
-  pinMode(uEcho, INPUT);
-=======
   pinMode(uTrigger, OUTPUT);
   pinMode(uEcho, INPUT);
 
   digitalWrite(uTrigger, LOW);
->>>>>>> 3065ff5 (Funcion de Ultrasonido Añadida)
   
   Serial.begin(115200);
   Serial1.begin(9600);
@@ -104,16 +82,11 @@ void loop()
   }
 
   if(completeString == true){
-<<<<<<< HEAD
-    if(inputString.charAt(0) == '$'){ // Comparamos el primer caracter que mando el modulot
-      numChar[0] = inputString.charAt(2); //Convertir los caracteres de valor que se reciben en un int
-=======
     Serial.print(inputString);
     // Comparamos el primer caracter que mando el modulo
     if(inputString.charAt(0) == '$'){ 
       //Convertir los caracteres de valor que se reciben en un int
       numChar[0] = inputString.charAt(2); 
->>>>>>> 3065ff5 (Funcion de Ultrasonido Añadida)
       numChar[1] = inputString.charAt(3);
       dCyclei = (numChar[0] - 48) * 10 + (numChar[1] - 48); 
       dCycled = (numChar[0] - 48) * 10 + (numChar[1] - 48) ;
@@ -122,16 +95,8 @@ void loop()
         case 'A': motiA -> setPWM(pmotdA,freq,dCyclei,true);
                   motdA -> setPWM(pmotdB,freq,dCycled,true);
                   break;
-<<<<<<< HEAD
-        case 'D' : motiA -> setPWM(pmotdA,freq,0,true);
-                   motiB -> setPWM(pmotdB,freq,0,true);
-                   break;
-        case 'H' :
-                   int bocina = (numChar[0] - 48) * 10 + (numChar[1] - 48); 
-=======
         case 'H' :
                    int bocina = numChar[0] - 48; 
->>>>>>> 3065ff5 (Funcion de Ultrasonido Añadida)
                    digitalWrite(boc, bocina);
                    break;
       }
@@ -143,14 +108,11 @@ void loop()
         case 'L' :
                     digitalWrite(leds, !digitalRead(leds));
                     break;
-<<<<<<< HEAD
-=======
         case 'D' :  
                     uDistance();
                     Serial.print(F("Distancia de: "));
                     Serial.print(distance);
                     Serial.println(F(" cm"));
->>>>>>> 3065ff5 (Funcion de Ultrasonido Añadida)
       }
       inputString = "";
     }
@@ -163,9 +125,4 @@ void loop()
     Serial1.write(inByte);
   }
   
-<<<<<<< HEAD
 }
-  
-=======
-}
->>>>>>> 3065ff5 (Funcion de Ultrasonido Añadida)
